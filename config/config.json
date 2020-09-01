@@ -1,0 +1,23 @@
+{
+  "development": {
+    "url": "postgres://vsueercs:y62p_U5qbi71_OWwvEibCfRKIRahhskJ@rogue.db.elephantsql.com:5432/vsueercs",
+    "dialect": "postgres",
+    "operatorsAliases": "0"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": "0"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": "0"
+  }
+}
