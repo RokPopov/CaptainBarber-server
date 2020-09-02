@@ -9,8 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       barbershop.belongsTo(models.user);
-      barbershop.hasMany(models.review);
-      barbershop.hasMany(models.reservation);
+
       barbershop.hasMany(models.location);
     }
   }
@@ -49,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       phoneNum: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       openingHours: {
         type: DataTypes.STRING,

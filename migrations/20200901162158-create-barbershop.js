@@ -41,7 +41,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       phoneNum: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       openingHours: {
         type: Sequelize.STRING,

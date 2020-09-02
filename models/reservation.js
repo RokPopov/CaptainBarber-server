@@ -9,8 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       reservation.belongsTo(models.user);
-      reservation.belongsTo(models.barbershop);
-      reservation.hasOne(models.location);
+      reservation.belongsTo(models.location);
     }
   }
   reservation.init(

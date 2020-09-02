@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       location.belongsTo(models.barbershop);
-      location.belongsTo(models.review);
-      location.belongsTo(models.reservation);
+      location.hasMany(models.review);
+      location.hasMany(models.reservation);
     }
   }
   location.init(
@@ -20,11 +20,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       longitude: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       latitude: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
     },
