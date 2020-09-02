@@ -1,6 +1,6 @@
 {
   "development": {
-    "url": "postgres://ugkvnwcb:KIzL5HjrOKxaIG2yh-KK2XpWzYV6TFs0@rogue.db.elephantsql.com:5432/ugkvnwcb",
+    "url": "postgres://vsueercs:y62p_U5qbi71_OWwvEibCfRKIRahhskJ@rogue.db.elephantsql.com:5432/vsueercs",
     "dialect": "postgres",
     "operatorsAliases": "0"
   },

@@ -8,7 +8,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      reservation.belongsTo(models.user);
+      reservation.belongsTo(models.barbershop);
+      reservation.hasOne(models.location);
     }
   }
   reservation.init(
