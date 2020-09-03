@@ -164,7 +164,7 @@ module.exports = {
           description:
             "In recent years we have grown into a unique barbershop, where craftsmanship & passion for the profession comes into its own. Years of experience in cutting ensures that we create unique hairstyles.",
           image:
-            "https://www.barbershopjordaan.nl/wp-content/uploads/2020/07/barbershop_jordaan_yamo_2_optimized.jpg",
+            "https://images.pexels.com/photos/1319459/pexels-photo-1319459.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
           rate: 38,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -185,7 +185,7 @@ module.exports = {
           description:
             "Inspiration, creativity and personal services are key to our business. We strive for sustainability with interior choices and products - Sustainable Beauty. For example over 95% of the lighting is LED or similar, bamboo floor, we wash towels on low temperatures and we use Green Choice for energy.",
           image:
-            "https://www.barbershopjordaan.nl/wp-content/uploads/2020/07/barbershop_jordaan_yamo_2_optimized.jpg",
+            "https://images.pexels.com/photos/995300/pexels-photo-995300.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
           rate: 27,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -206,7 +206,7 @@ module.exports = {
           description:
             "Barbershop Qlippers is a salon where the professionalism, house rules, ambience and love for the craft are prioritized. A warm greeting from everyone to everyone is something that plays a big part in the warm and familiar feeling that we like to see back in the daily atmosphere. Our dream team consists of real professionals who can handle all hair types and styles. Book your appointment! And come along to taste the atmosphere and treat yourself to one of our treatments!",
           image:
-            "https://static.wixstatic.com/media/2a982b_05698ba474804165a9a76c3021332dda~mv2.png/v1/fill/w_1920,h_1080,al_c,q_95/2a982b_05698ba474804165a9a76c3021332dda~mv2.webp",
+            "https://images.pexels.com/photos/3992870/pexels-photo-3992870.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
           rate: 25,
           createdAt: new Date(),
           updatedAt: new Date(),
