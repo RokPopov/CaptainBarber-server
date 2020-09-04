@@ -34,4 +34,17 @@ router.get("/:id", async (req, res) => {
   res.status(200).send(barbershopById);
 });
 
+router.patch("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  const barbershop = await Barbershop.findByPk(parseInt(id));
+  if (!barbershop) {
+    return res.status(400).send("Barbershop does not exist");
+  }
+  const updatedBarbershop = await barbershop.increment({
+    rate: 1,
+  });
+  res.status(200).send(updatedBarbershop);
+});
+
 module.exports = router;
