@@ -47,4 +47,50 @@ router.patch("/:id", async (req, res) => {
   res.status(200).send(updatedBarbershop);
 });
 
+router.post("/addbarbershop", authMiddleware, async (req, res) => {
+  const {
+    title,
+    haircut,
+    beardcut,
+    combo,
+    haircutPrice,
+    beardcutPrice,
+    comboPrice,
+    website,
+    email,
+    phoneNum,
+    openingHours,
+    description,
+    image,
+  } = req.body;
+  const user = req.user;
+  if (!title || !haircut || !beardcut || !combo || !website || !openingHours) {
+    return res.status(400).send("Please provide all required information");
+  }
+
+  try {
+    const addBarbershop = await Barbershop.create({
+      title,
+      haircut,
+      beardcut,
+      combo,
+      haircutPrice,
+      beardcutPrice,
+      comboPrice,
+      website,
+      email,
+      phoneNum,
+      openingHours,
+      description,
+      image,
+      userId: user.id,
+    });
+    res.status(200).send({ addBarbershop });
+  } catch (error) {
+    console.log(error);
+
+    return res.status(400).send({ message: "Something went wrong, sorry" });
+  }
+});
+
 module.exports = router;
