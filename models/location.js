@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       longitude: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        
       },
       latitude: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        
       },
     },
     {
