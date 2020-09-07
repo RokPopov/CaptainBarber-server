@@ -10,7 +10,7 @@ const Review = require("../models").review;
 const router = new Router();
 
 router.get("/", async (req, res) => {
-  const limit = req.query.limit || 10;
+  const limit = req.query.limit || 20;
   const offset = req.query.offset || 0;
   const barbershops = await Barbershop.findAll({
     limit,
@@ -86,6 +86,47 @@ router.post("/addbarbershop", authMiddleware, async (req, res) => {
       userId: user.id,
     });
     res.status(200).send({ addBarbershop });
+  } catch (error) {
+    console.log(error);
+
+    return res.status(400).send({ message: "Something went wrong, sorry" });
+  }
+});
+
+router.post("/:id/review", authMiddleware, async (req, res) => {
+  const { content } = req.body;
+  const { id } = req.params;
+  const user = req.user;
+  //const location = req.location;
+  if (!user) {
+    return res.status(400).send("User doesn't exist");
+  }
+
+  if (!content) {
+    return res.status(400).send("Please provide some review content");
+  }
+
+  if (isNaN(parseInt(id))) {
+    return res.status(400).send("Id is not a number");
+  }
+
+  try {
+    console.log("what is request", req.body);
+    console.log("user", user);
+
+    const barbershop = await Barbershop.findByPk(parseInt(id), {
+      include: [{ model: Location, include: [Review] }],
+    });
+    console.log("barbershop", barbershop);
+    const postReview = await Review.create({
+      time: new Date(),
+      content,
+      userId: user.id,
+      locationId: barbershop.id,
+    });
+
+    console.log("new review", postReview);
+    res.status(200).send(postReview);
   } catch (error) {
     console.log(error);
 
