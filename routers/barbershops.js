@@ -6,6 +6,7 @@ const authMiddleware = require("../auth/middleware");
 const Barbershop = require("../models").barbershop;
 const Location = require("../models").location;
 const Review = require("../models").review;
+const User = require("../models").user;
 
 const router = new Router();
 
@@ -23,8 +24,9 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const barbershopById = await Barbershop.findByPk(parseInt(id), {
-    include: [{ model: Location, include: [Review] }],
+    include: [{ model: Location, include: { model: Review, include: [User] } }],
   });
+  console.log("what do we get", barbershopById);
   if (!barbershopById) {
     return res.status(400).send("Barbershop doesn't exist");
   }
