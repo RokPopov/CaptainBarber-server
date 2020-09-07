@@ -6,7 +6,9 @@ const User = require("./models").user;
 const oneBarbershop = async (id) => {
   try {
     const barbershop = await Barbershop.findByPk(id, {
-      include: [{ model: Location, include: [Review] }],
+      include: [
+        { model: Location, include: { model: Review, include: [User] } },
+      ],
     });
     console.log(barbershop.get({ plain: true }).locations[0].reviews);
   } catch (e) {
@@ -25,5 +27,5 @@ const oneUser = async (id) => {
   }
 };
 
-//oneBarbershop(5);
-oneUser(2);
+oneBarbershop(5);
+//oneUser(2);
