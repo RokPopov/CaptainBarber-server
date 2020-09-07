@@ -56,6 +56,7 @@ router.post("/addbarbershop", authMiddleware, async (req, res) => {
     haircutPrice,
     beardcutPrice,
     comboPrice,
+    address,
     website,
     email,
     phoneNum,
@@ -64,6 +65,7 @@ router.post("/addbarbershop", authMiddleware, async (req, res) => {
     image,
   } = req.body;
   const user = req.user;
+
   if (!title || !haircut || !beardcut || !combo || !website || !openingHours) {
     return res.status(400).send("Please provide all required information");
   }
@@ -85,7 +87,13 @@ router.post("/addbarbershop", authMiddleware, async (req, res) => {
       image,
       userId: user.id,
     });
-    res.status(200).send({ addBarbershop });
+
+    const location = await Location.create({
+      address,
+      barbershopId: addBarbershop.id,
+    });
+
+    res.status(200).send({ addBarbershop, location });
   } catch (error) {
     console.log(error);
 
