@@ -4,6 +4,7 @@ const corsMiddleWare = require("cors");
 const { PORT } = require("./config/constants");
 const authRouter = require("./routers/auth");
 const barbershopRouter = require("./routers/barbershops");
+const mapRouter = require("./routers/map");
 
 const authMiddleWare = require("./auth/middleware");
 
@@ -52,6 +53,7 @@ app.post("/authorized_post_request", authMiddleWare, (req, res) => {
 
 app.use("/", authRouter);
 app.use("/barbershops", barbershopRouter);
+app.use("/map", mapRouter);
 
 // Listen for connections on specified port (default is port 4000)
 
