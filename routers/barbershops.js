@@ -21,6 +21,7 @@ router.get("/", async (req, res) => {
   res.status(200).send(barbershops);
 });
 
+
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const barbershopById = await Barbershop.findByPk(parseInt(id), {
