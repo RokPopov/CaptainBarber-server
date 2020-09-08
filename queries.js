@@ -1,3 +1,5 @@
+// Test queries
+
 const Barbershop = require("./models").barbershop;
 const Review = require("./models").review;
 const Location = require("./models").location;
