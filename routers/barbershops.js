@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
   const barbershopById = await Barbershop.findByPk(parseInt(id), {
     include: [{ model: Location, include: { model: Review, include: [User] } }],
   });
-  console.log("what do we get", barbershopById);
+
   if (!barbershopById) {
     return res.status(400).send("Barbershop doesn't exist");
   }
@@ -111,7 +111,6 @@ router.post("/:id/review", authMiddleware, async (req, res) => {
   const { content } = req.body;
   const { id } = req.params;
   const user = req.user;
-  //const location = req.location;
   if (!user) {
     return res.status(400).send("User doesn't exist");
   }
@@ -125,13 +124,10 @@ router.post("/:id/review", authMiddleware, async (req, res) => {
   }
 
   try {
-    console.log("what is request", req.body);
-    console.log("user", user);
-
     const barbershop = await Barbershop.findByPk(parseInt(id), {
       include: [{ model: Location, include: [Review] }],
     });
-    console.log("barbershop", barbershop);
+
     const postReview = await Review.create({
       time: new Date(),
       content,
@@ -139,7 +135,6 @@ router.post("/:id/review", authMiddleware, async (req, res) => {
       locationId: barbershop.id,
     });
 
-    console.log("new review", postReview);
     res.status(200).send(postReview);
   } catch (error) {
     console.log(error);
