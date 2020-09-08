@@ -21,7 +21,6 @@ router.get("/", async (req, res) => {
   res.status(200).send(barbershops);
 });
 
-
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const barbershopById = await Barbershop.findByPk(parseInt(id), {
@@ -60,6 +59,8 @@ router.post("/addbarbershop", authMiddleware, async (req, res) => {
     beardcutPrice,
     comboPrice,
     address,
+    longitude,
+    latitude,
     website,
     email,
     phoneNum,
@@ -93,6 +94,8 @@ router.post("/addbarbershop", authMiddleware, async (req, res) => {
 
     const location = await Location.create({
       address,
+      longitude,
+      latitude,
       barbershopId: addBarbershop.id,
     });
 
