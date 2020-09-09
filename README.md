@@ -1,6 +1,6 @@
 # 🪒Captain Barber 🪒
 
-Captain Barber is a portfolio project where you can search for barbershops in Amsterdam, write reviews, rate them and add new barbershops.
+Captain Barber is a portfolio project where you can search for barbershops in Amsterdam, see and write their reviews, rate them and add new barbershops. You can see the information about the services they provide so you can compare the prices and decide where to book your appointment. You can also find contact information for each barbershop and locate them on a map, so you always know where to go to get that clean cut.  
 
 ## Table of contents:
 
