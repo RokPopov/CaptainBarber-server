@@ -1,111 +1,108 @@
-# Server template
+# 🪒Captain Barber 🪒
 
-This is a simple server template to for my students to start projects quickly.
+Captain Barber is a portfolio project where you can search for barbershops in Amsterdam, write reviews, rate them and add new barbershops.
 
 ## Table of contents:
 
-- **[Setup](#setup-how-to-use-this-template)**
+- **[Goals for this Project](#goals-for-this-project)**
+- **[User Stories](#user-stories)**
+- **[Database Diagram](#database-diagram)**
+- **[Project-Board](#project-board)**
+- **[Frontend](#frontend)**
 - **[Endpoints](#endpoints)**
+- **[Technologies Used](#technologies-used)**
+- **[Git Version Control](#git-version-control)**
 - **[Sample requests with axios](#sample-requests-with-axios)**
 - **[Sample requests with httpie](#sample-requests-with-httpie)**
-- **[History of this project (pullrequests)](#history-of-this-project)**
+- **[Getting Started](#getting-started-instructions)**
 
-## SETUP How to use this template
+## Goals for this Project
 
-1. Create a new project based on this template using the `Use this template` button
+The goal of this project is to build a full-stack app, implementing backend and frontend technologies. 
+This is the backend of the project, where I am trying to:
 
-![HOW_TO_USE](https://user-images.githubusercontent.com/20372832/77003323-70966180-695d-11ea-8abe-b362d57135f3.gif)
+* build a working prototype in two weeks
+* apply the technologies I learned in Codaisseur Bootcamp 
+* showcase and document development skills using:
+  * wireframes as Minimum Viable Product
+  * data model design
+  * kanban project approach
+  * transparant and structured git version control
 
-2. Clone the app
+## User Stories
 
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
+* As a page visitor, I can sign up and log in as a user. I must register before I can post reviews and like barbershops.
+* As a page visitor, I am able see existing barbershops, their rates and reviews. I can see them sorted by their rates in a descending order.
+* As a page visitor, I am able to see the name of the user, that posted a review and the time and date of when it was posted.
+* As a page visitor, I am able to see the existing barbershops on a map and get to their detail page when clicking on them.
+* As a logged in user, I am able to rate and review barbershops.
+* As a barbershop owner, I can log in as a barbershop owner.
+* As a logged in barbershop owner, I am able to add a new barbershop to the list of barbershops.
 
-3. cd into your project
+## Database Diagram
 
-```
-cd YOUR_PROJECT_NAME
-```
+Link to the DB diagram: [a link](https://dbdiagram.io/d/5f4cf56d88d052352cb56e34)
 
-4. install dependencies
+## Project Board
 
-```
-npm install
-```
+Link to the project board: [a link](https://github.com/RokPopov/CaptainBarber-client/projects/1)
 
-5. Configure your database in `config/config.json`
+## Frontend
 
-Default config is setup for usage with an ElephantSQL database instance, you need to provide the DB Url on the "url" key of the config.json file, key development.
-
-```json
-// config/config.json
-{
-  "development": {
-    "url": "YOUR_ELEPHANTSQL_URL_HERE",
-    "dialect": "postgres",
-    "operatorsAliases": "0"
-  },
-}
-```
-
-
-If planning to use this template with a docker database the config object should be changed to:
-
-```json
-// config/config.json
-{
-  "development": {
-    "username": "postgres",
-    "password": "secret",
-    "database": "YOUR_PROJECT_NAME_HERE_development",
-    "host": "localhost",
-    "dialect": "postgres",
-    "operatorsAliases": "0"
-  }
-}
-```
-
-And you must revert the changes on this line in models/index.js: https://github.com/Codaisseur/express-template/commit/ada7711c8b19c8f240bc61f94743213efe4a77d2#diff-18c449caa39363f82bacb4f7489e7783L15
-
-
-6. Create database, run migrations & seed data
-
-`package.json` contains a script for this
-
-```bash
-npm run initdev
-```
-
-Or run the commands seperately
-
-```bash
-npx sequelize-cli db:migrate
-npx sequelize-cli db:seed:all
-```
-
-7. start server with `nodemon` (recommended for development)
-
-```
-npm run dev
-```
-
-8. or start normally
-
-```
-npm start
-```
+Link to the client side of the project: [a link](https://github.com/RokPopov/CaptainBarber-client)
 
 ## Endpoints
 
-| Method | Path                       | Purpose                             | required parameters   | auth |
-| ------ | -------------------------- | ----------------------------------- | --------------------- | ---- |
-| GET    | '/'                        | Test if your server is running      | none                  | no   |
-| POST   | '/echo'                    | Test POST requests                  | none                  | no   |
-| POST   | '/signup'                  | Create a new user and get a token   | email, name, password | no   |
-| POST   | '/login'                   | Get a token with email & password   | email, password       | no   |
-| GET    | '/me'                      | Get information of this user        | none                  | yes  |
-| POST   | '/authorized_post_request' | Test POST requests (token required) | none                  | yes  |
+| Method | Path                        | Purpose                             | required parameters    | auth |
+| ------ | --------------------------- | ----------------------------------- | ---------------------- | ---- |
+| GET    | '/'                         | Test if your server is running      | none                   | no   |
+| POST   | '/echo'                     | Test POST requests                  | none                   | no   |
+| POST   | '/signup'                   | Create a new user and get a token   | email,                 | no   |
+|        |                             |                                     | password,              |      |
+|        |                             |                                     | firstName              |      |
+|        |                             |                                     | lastName,              |      |
+|        |                             |                                     | address,               |      |
+|        |                             |                                     | phoneNum,              |      |
+|        |                             |                                     | isOwner,               | no   |
+| POST   | '/login'                    | Get a token with email & password   | email, password        | no   |
+| GET    | '/me'                       | Get information of this user        | none                   | yes  |
+| POST   | '/authorized_post_request'  | Test POST requests (token required) | none                   | yes  |
+| GET    | '/barbershops/'             | Get information of this barbershop  | none                   | no   |
+|        |                             | and it's locations                  |                        |      |
+| GET    | '/barbershops/:id'          | Get information of this barbershop  | none                   | no   |
+|        |                             | with it's locations and reviews     |                        |      |
+|        |                             | with the relating user              |                        |      |
+| PATCH  | '/barbershops/:id'          | Increment the rate property of      | none                   | no   |
+|        |                             | barbershop model                    |                        |      |
+| POST   | '/barbershops/addbarbershop | Create a new barbershop and a new   | title, haircut,        | yes  |
+|        |                             | location                            | beardcut, combo,       |      |
+|        |                             |                                     | haircutPrice,          |      |
+|        |                             |                                     | beardcutPrice,         |      |
+|        |                             |                                     | comboPrice, address,   |      |
+|        |                             |                                     | longitude, latitude    |      |
+|        |                             |                                     | website, email,        |      |
+|        |                             |                                     | phoneNum, openingHours |      |
+|        |                             |                                     | description, image     |      |
+| POST   | '/barbershops/:id/review'   | Create a new review                 | time, content, userId, | yes  |
+|        |                             |                                     | locationId             |      |
+| GET    | '/map/'                     | Get information of all the          | none                   | no   |
+|        |                             | barbershops and include their       |                        |      |
+|        |                             | locations                           |                        |      |
+
+## Technologies Used
+
+- Express
+- REST API
+- Sequelize ORM
+- PostgreSQL
+
+## Git Version Control
+
+In this project I try to implement solid version control:
+
+- write clear commit messages
+- name branches by features
+- do pull requests with meaningful summaries
 
 ## Sample requests with axios
 
@@ -132,11 +129,49 @@ To demo making request to this server, bash commands are included that make requ
 
 They can found in [./sampleRequests/httpie.md](./sampleRequests/httpie.md)
 
-## History of this project
+## SETUP Getting started instructions
 
-- [Setup of the server](https://github.com/Codaisseur/express-template/commit/cd2f790fbab6c561300163466a074fd09a35f704)
-- [Adding a README](https://github.com/Codaisseur/express-template/pull/1)
-- [Setting up the Database](https://github.com/Codaisseur/express-template/pull/2)
-- [Signup, Login & auth middleware](https://github.com/Codaisseur/express-template/pull/3)
-- [Configure cors](https://github.com/Codaisseur/express-template/pull/4)
-- [Seed using models & add delay middleware](https://github.com/Codaisseur/express-template/pull/5)
+1. Clone the app
+
+```
+git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
+```
+
+2. cd into your project
+
+```
+cd YOUR_PROJECT_NAME
+```
+
+3. install dependencies
+
+```
+npm install
+```
+
+4. Run migrations & seed data
+
+`package.json` contains a script for this
+
+```bash
+npm run initdev
+```
+
+Or run the commands seperately
+
+```bash
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+```
+
+5. start server with `nodemon` (recommended for development)
+
+```
+npm run dev
+```
+
+6. or start normally
+
+```
+npm start
+```
