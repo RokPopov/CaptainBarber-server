@@ -63,7 +63,7 @@ This is the backend of the project, where I am trying to:
 |        |                             |                                     | lastName,              |      |
 |        |                             |                                     | address,               |      |
 |        |                             |                                     | phoneNum,              |      |
-|        |                             |                                     | isOwner,               | no   |
+|        |                             |                                     | isOwner                |      |
 | POST   | '/login'                    | Get a token with email & password   | email, password        | no   |
 | GET    | '/me'                       | Get information of this user        | none                   | yes  |
 | POST   | '/authorized_post_request'  | Test POST requests (token required) | none                   | yes  |
