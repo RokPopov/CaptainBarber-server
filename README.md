@@ -1,11 +1,12 @@
 # 🪒Captain Barber 🪒
 
-Captain Barber is a portfolio project where you can search for barbershops in Amsterdam, see and write their reviews, rate them and add new barbershops. You can see the information about the services they provide so you can compare the prices and decide where to book your appointment. You can also find contact information for each barbershop and locate them on a map, so you always know where to go to get that clean cut.  
+Captain Barber is a portfolio project where you can search for barbershops in Amsterdam, see and write their reviews, rate them and add new barbershops. You can see the information about the services they provide so you can compare the prices and decide where to book your appointment. You can also find contact information for each barbershop and locate them on a map, so you always know where to go to get that clean cut.
 
 ## Table of contents:
 
 - **[Goals for this Project](#goals-for-this-project)**
 - **[User Stories](#user-stories)**
+- **[Working Version](#working-version)**
 - **[Database Diagram](#database-diagram)**
 - **[Project-Board](#project-board)**
 - **[Frontend](#frontend)**
@@ -38,6 +39,10 @@ This is the backend of the project, where I am trying to:
 - As a logged in user, I am able to rate and review barbershops.
 - As a barbershop owner, I can log in as a barbershop owner.
 - As a logged in barbershop owner, I am able to add a new barbershop to the list of barbershops.
+
+## Working Version
+
+[Link to Captain Barber](https://captainbarber.netlify.app/)
 
 ## Database Diagram
 
