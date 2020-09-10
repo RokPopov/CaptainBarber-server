@@ -13,6 +13,6 @@
     "operatorsAliases": "0"
   },
   "production": {
-    "use_env_variable": "postgres://vsueercs:y62p_U5qbi71_OWwvEibCfRKIRahhskJ@rogue.db.elephantsql.com:5432/vsueercs"
+    "use_env_variable": "DATABASE_URL"
   }
 }
