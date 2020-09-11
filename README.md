@@ -113,7 +113,7 @@ In this project I try to implement solid version control:
 
 To demo making request to this server, some small script are included that make requests using `axios`
 
-The scripts can be found in [/sampleRequests](./sampleRequests)
+The scripts can be found in [/sampleRequests](https://github.com/RokPopov/CaptainBarber-server/tree/development/sampleRequests)
 
 1. Make sure to follow the the setup in this readme first
 2. cd sampleRequests
@@ -132,51 +132,33 @@ node authorizedPost.js
 
 To demo making request to this server, bash commands are included that make requests using `httpie`
 
-They can found in [./sampleRequests/httpie.md](./sampleRequests/httpie.md)
+They can found in [./sampleRequests/httpie.md](https://github.com/RokPopov/CaptainBarber-server/blob/development/sampleRequests/httpie.md)
 
 ## SETUP Getting started instructions
 
 1. Clone the app
 
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
-
 2. cd into your project
-
-```
-cd YOUR_PROJECT_NAME
-```
 
 3. install dependencies
 
-```
 npm install
-```
 
 4. Run migrations & seed data
 
-`package.json` contains a script for this
-
-```bash
 npm run initdev
-```
+
 
 Or run the commands seperately
 
-```bash
 npx sequelize-cli db:migrate
 npx sequelize-cli db:seed:all
-```
 
 5. start server with `nodemon` (recommended for development)
 
-```
 npm run dev
-```
+
 
 6. or start normally
 
-```
 npm start
-```
